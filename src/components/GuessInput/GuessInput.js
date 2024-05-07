@@ -5,7 +5,9 @@ function GuessInput({ handleSubmitGuess }) {
 
   function handleSubmit(event) {
     event.preventDefault();
+
     handleSubmitGuess(tentativeGuess);
+
     setTentativeGuess('');
   }
 
@@ -14,11 +16,11 @@ function GuessInput({ handleSubmitGuess }) {
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         required
-        value={tentativeGuess}
         minLength={5}
         maxLength={5}
         pattern="[a-zA-Z]{5}"
         title="5 letter word"
+        value={tentativeGuess}
         onChange={(event) => {
           const nextGuess = event.target.value.toUpperCase();
           setTentativeGuess(nextGuess);
